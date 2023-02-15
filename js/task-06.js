@@ -12,19 +12,6 @@ const inputLength = Number(input.getAttribute('data-length'));
 input.addEventListener('blur', onInput);
 
 function onInput(event) {
-     
-    if (event.target.value.length === inputLength) {
-        input.classList.remove("invalid");
-        input.classList.add("valid");
-       
-    }
-    if (event.target.value.length !== inputLength) {
-        input.classList.remove("valid");
-        input.classList.add("invalid");
-    }
-    if (event.target.value.length === 0) {
-        input.classList.remove("valid");
-        input.classList.remove("invalid");
-    }
-
+    input.classList.remove("valid", "invalid");
+    event.target.value.length === inputLength ? input.classList.add("valid") : input.classList.add("invalid");
 }
